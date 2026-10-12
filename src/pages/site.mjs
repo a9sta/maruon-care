@@ -62,7 +62,7 @@ export function homePage(ctx) {
      <p class="fr-tail"><a href="/magazine/">노트 전체 보기</a></p>`,
     '후기나 체험담이 아닙니다. 받기 전에 정해 두시면 좋은 것만 적었습니다.', '05');
 
-  const { html: faqHtml, qa } = faqBlock(seed, baseCtx(cfg, courses, '전 지역'), 6, '06');
+  const { html: faqHtml, qa } = faqBlock(seed, baseCtx(cfg, courses, '지금 계신 곳'), 6, '06');
 
   const pool = [];
   for (const r of regions) {
@@ -126,7 +126,7 @@ export function areaHub(ctx) {
       : `${r.name}${josa(r.name, '은/는')} 시군구까지입니다. 행정동 ${r.dongCount}곳의 이름은 각 시군구 쪽에 있습니다.`,
     String(i + 1).padStart(2, '0'))).join('\n');
 
-  const { html: faqHtml, qa } = faqBlock(seed, baseCtx(cfg, courses, '전 지역'), 4, '98');
+  const { html: faqHtml, qa } = faqBlock(seed, baseCtx(cfg, courses, '사시는 동네'), 4, '98');
 
   const body = [lead, telCta(cfg, '사시는 곳', seed), blocks, faqHtml, stepList(seed, '99')].join('\n');
 
@@ -169,7 +169,7 @@ export function courseHub(ctx) {
     `<ul class="pk">${courses.map((c) => `<li><a href="/course/${c.slug}/"><b>${esc(c.ko)}</b><span>${esc(c.for)}</span></a></li>`).join('')}</ul>`,
     '고르고 나서 바꾸셔도 됩니다. 값은 마지막에 정한 코스로 계산합니다.', '02');
 
-  const { html: faqHtml, qa } = faqBlock(seed, baseCtx(cfg, courses, '코스'), 4, '03');
+  const { html: faqHtml, qa } = faqBlock(seed, baseCtx(cfg, courses, '사시는 곳'), 4, '03');
 
   const pool = [];
   for (const r of regions) for (const c of courses) pool.push({ label: `${r.name} ${c.ko}`, href: `/${r.slug}/course/${c.slug}/` });
@@ -230,7 +230,7 @@ export function pricePage(ctx) {
       ['두 분이 받으실 때', '각각 계산합니다. 묶음 할인은 없습니다'],
     ]), null, '03');
 
-  const { html: faqHtml, qa } = faqBlock(seed, baseCtx(cfg, courses, '금액'), 4, '04');
+  const { html: faqHtml, qa } = faqBlock(seed, baseCtx(cfg, courses, '사시는 자리'), 4, '04');
 
   const body = [lead, table, noExtra, pay, telCta(cfg, '금액 확인', seed), faqHtml, siteLinks(ctx, seed)].join('\n');
 
@@ -287,7 +287,7 @@ export function guidePage(ctx) {
     </ul>`,
     '돌려 드린다고 해서 돈을 받지 않습니다.', '03');
 
-  const { html: faqHtml, qa } = faqBlock(seed, baseCtx(cfg, courses, '이용안내'), 6, '05');
+  const { html: faqHtml, qa } = faqBlock(seed, baseCtx(cfg, courses, '부르시는 곳'), 6, '05');
 
   const body = [lead, what, timing, stepList(seed, '04'), refuse, telCta(cfg, '처음 이용', seed), faqHtml, noticeBlock(seed, '06'), siteLinks(ctx, seed)].join('\n');
 

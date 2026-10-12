@@ -35,7 +35,7 @@ export function coursePage(ctx, c) {
   const h = hash(seed, 'cp');
 
   const fc = {
-    place: c.ko, hours: cfg.hours, pay: cfg.pay, arrive: cfg.arrive,
+    place: '사시는 곳', hours: cfg.hours, pay: cfg.pay, arrive: cfg.arrive,
     tel: cfg.tel, telLabel: cfg.telLabel, telNote: cfg.telNote,
     minPrice: won(Math.min(...courses.map((x) => x.price))),
   };
@@ -124,7 +124,7 @@ export function sidoCoursePage(ctx, sd, c) {
   const h = hash(seed, 'sc');
 
   const fc = {
-    place: `${sd.name} ${c.ko}`, hours: cfg.hours, pay: cfg.pay, arrive: cfg.arrive,
+    place: sd.name, hours: cfg.hours, pay: cfg.pay, arrive: cfg.arrive,
     tel: cfg.tel, telLabel: cfg.telLabel, telNote: cfg.telNote,
     minPrice: won(Math.min(...courses.map((x) => x.price))),
   };
