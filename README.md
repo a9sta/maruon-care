@@ -76,7 +76,7 @@ npm run serve     # 로컬 확인 (http://127.0.0.1:8080)
 | Node | 20 |
 | Workers Builds | `wrangler.jsonc` 참고 (main 없는 자산 전용 워커) |
 
-기준 주소는 `https://maruon-care.pages.dev` 로 잡아 두었다(저장소 이름과 맞췄다).
-★Cloudflare 프로젝트 이름을 다른 것으로 만들면 주소가 달라지므로, `data/site.config.json` 의
-`siteUrl` 을 그 주소로 바꾸고 **다시 빌드**해야 한다 — canonical·사이트맵·RSS·llms.txt 가 전부 그 값을 쓴다.
-빌드 때 `CF_PAGES_URL` 환경변수가 있으면 그 값을 먼저 쓴다(미리보기 배포에서도 canonical 이 맞는다).
+기준 주소는 **`https://maruon-care.yovip77.workers.dev`**(Cloudflare Workers 정적 자산, 2026-10-12 배포).
+★Pages 가 아니라 Workers 라 `*.pages.dev` 가 아니고 `*.<계정>.workers.dev` 다.
+정식 도메인을 붙이면 `data/site.config.json` 의 `siteUrl` 을 그 주소로 바꾸고 **다시 빌드**한다 —
+canonical·사이트맵·RSS·llms.txt 가 전부 그 값을 쓴다.
