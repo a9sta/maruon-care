@@ -94,7 +94,6 @@ main{max-width:1080px;margin:0 auto;padding:18px 18px 56px}
 .cb-tx{display:flex;flex-direction:column;line-height:1.15}
 .cb-lb{font-size:10.5px;letter-spacing:.1em;opacity:.9;font-weight:700}
 .cb-nm{font-size:15px;font-weight:800;letter-spacing:.01em;font-family:var(--mono)}
-.cb-nt{font-size:10px;background:#fff;color:var(--accDk);padding:2px 6px;border-radius:1px;font-weight:800;letter-spacing:.04em}
 .cb-s{padding:7px 11px}.cb-s .cb-nm{font-size:13.5px}
 .cb-l{padding:13px 20px}.cb-l .cb-nm{font-size:19px}
 .cb-f{display:flex;width:100%;justify-content:center}
@@ -140,11 +139,11 @@ main{max-width:1080px;margin:0 auto;padding:18px 18px 56px}
 
 /* ── 물음 ─────────────────────────────────────────── */
 .qa{margin:0}
-.qa-i{border-top:1px solid var(--line);padding:13px 0}
+.qa-i{border-top:1px solid var(--line);padding:13px 0;display:grid;grid-template-columns:auto 1fr;column-gap:9px}
 .qa-i:first-child{border-top:0;padding-top:0}
-.qa dt{font-weight:800;font-size:15px;display:flex;gap:9px;align-items:baseline}
-.qa-n{font-family:var(--mono);font-size:11px;color:var(--acc)}
-.qa dd{margin:6px 0 0 23px;font-size:14px;color:var(--dim)}
+.qa-n{grid-column:1;grid-row:1;font-family:var(--mono);font-size:11px;color:var(--acc);padding-top:4px}
+.qa-q{grid-column:2;grid-row:1;margin:0;font-weight:800;font-size:15px}
+.qa-a{grid-column:2;grid-row:2;margin:6px 0 0;font-size:14px;color:var(--dim)}
 
 /* ── 목록들 ───────────────────────────────────────── */
 .nt{list-style:none;margin:0;padding:0;display:grid;gap:9px}

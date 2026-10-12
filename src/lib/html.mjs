@@ -9,7 +9,7 @@ export const ASSET_V = '1';
  *   푸터  — 네이버 C랭크 4신호(출처·최신성·수집 경로·정보량) + AI 활용 고지
  *
  * ★전화번호는 **telBtn() 으로만** 찍는다. 번호만 덩그러니 적힌 자리가 생기면 안 된다
- *   (지시: 안심번호 옆에 '예약 문의'를 늘 적고 버튼으로 만든다). 검사도구가 그걸 본다.
+ *   (지시: 번호 옆에 '예약 문의'를 늘 적고 버튼으로 만든다). 검사도구가 그걸 본다.
  *
  * ★골격을 앞서 만든 네 사이트와 겹치지 않게 짰다.
  *   루네사      : 둥근 점머리 · 알약 버튼 · 4열 푸터
@@ -84,15 +84,16 @@ ${dock(cfg)}
 }
 
 /* ── 예약 문의 버튼 ────────────────────────────────────────────────
-   안심번호 옆에 '예약 문의'가 **늘 붙어 있어야 한다**. 겉모습은 버튼이지만
+   번호 옆에 '예약 문의'가 **늘 붙어 있어야 한다**. 겉모습은 버튼이지만
    `<a href="tel:">` 로 둔다 — <button> 이면 스크립트 없이는 아무 일도 안 일어나고,
    누르는 즉시 통화로 넘어가야 하기 때문이다.
+   ★2026-10-12 지시: **'안심번호' 글자는 버튼에 넣지 않는다**("예약문의 단어만 있으면 되니까").
+     번호의 성격은 이용약관 제2조와 개인정보처리방침 3항에 그대로 적어 두었다 — 고지는 남긴다.
    size: s(머리띠) · m(본문) · l(대문·하단 바) */
-export function telBtn(cfg, { size = 'm', note = true, block = false } = {}) {
+export function telBtn(cfg, { size = 'm', block = false } = {}) {
   return `<a class="cb cb-${size}${block ? ' cb-f' : ''}" href="tel:${cfg.telRaw}">
   <span class="cb-ic" aria-hidden="true">${phoneMark()}</span>
   <span class="cb-tx"><span class="cb-lb">${esc(cfg.telLabel)}</span><span class="cb-nm">${esc(cfg.tel)}</span></span>
-  ${note ? `<span class="cb-nt">${esc(cfg.telNote)}</span>` : ''}
 </a>`;
 }
 
@@ -106,7 +107,7 @@ function header(ctx, path) {
       ${plankMark()}<span class="mk-t"><b>${esc(cfg.brand.ko)}</b><i>${esc(cfg.brand.en)}</i></span>
     </a>
     <div class="tp-r">
-      ${telBtn(cfg, { size: 's', note: true })}
+      ${telBtn(cfg, { size: 's' })}
       <p class="tp-run">${esc(cfg.hours)}<span>${esc(cfg.pay)}</span></p>
     </div>
   </div>
@@ -195,7 +196,7 @@ function footer(ctx, latestPosts = []) {
 /** 모바일 하단 고정 바 — 여기서도 번호 옆에 '예약 문의'가 붙는다. */
 function dock(cfg) {
   return `<div class="dk">
-  ${telBtn(cfg, { size: 'l', note: true, block: true })}
+  ${telBtn(cfg, { size: 'l', block: true })}
   <span class="dk-s">문 앞까지 ${esc(cfg.arrive)}</span>
 </div>`;
 }

@@ -67,7 +67,7 @@ export function faqBlock(seedKey, c, n = 5, num = '05') {
     return { q: item.q(c), a: av(c) };
   });
   const html = frame('faq', '물음', esc(at(h, SEC.faqTitle, 3)),
-    `<dl class="qa">${qa.map((x, i) => `<div class="qa-i"><dt><span class="qa-n" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>${esc(x.q)}</dt><dd>${esc(x.a)}</dd></div>`).join('')}</dl>`,
+    `<div class="qa">${qa.map((x, i) => `<div class="qa-i"><span class="qa-n" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span><h3 class="qa-q">${esc(x.q)}</h3><p class="qa-a">${esc(x.a)}</p></div>`).join('')}</div>`,
     at(h, SEC.faqSub, 4), num);
   return { html, qa };
 }

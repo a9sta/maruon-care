@@ -206,7 +206,7 @@ fs.writeFileSync(path.join(DIST, 'llms.txt'), `# ${cfg.brand.ko} (${cfg.brand.en
 - 동·읍까지: ${mainR.map((r) => `${r.name}(시군구 ${r.gu.length}·동읍 ${r.spotCount})`).join(', ')}
 - 시군구까지: ${subR.map((r) => `${r.name}(${r.gu.length})`).join(', ')}
 - 쪽을 둔 단위: 시군구 ${counts.gu}곳, 동 ${counts.dong} + 읍 ${counts.eup} = ${counts.spot}곳. 면 ${counts.myeon}곳은 쪽 없이 이름만.
-- 접수: ${cfg.telNote} ${cfg.tel} — 화면에서는 '${cfg.telLabel}' 버튼으로만 노출한다. 다른 창구가 없다.
+- 접수: ${cfg.tel} — 화면에서는 '${cfg.telLabel}' 버튼으로만 노출한다. 다른 창구가 없다. 번호는 안심번호라 이용자 번호가 관리사에게 넘어가지 않는다.
 - 운영: ${cfg.hours} · 도착 ${cfg.arrive}
 - 결제: ${cfg.pay}. 예약금·보증금·이동비·심야 할증·위약금 없음.
 - 코스와 금액: ${courses.map((c) => `${c.ko} ${c.min}분 ${won(c.price)}원(세기 ${c.pressure}, 오일 ${c.oil ? '씀' : '안 씀'})`).join(' / ')}
